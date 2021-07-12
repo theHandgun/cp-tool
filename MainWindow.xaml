@@ -1,0 +1,94 @@
+﻿<Window x:Class="ScreenTextWriter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScreenTextWriter"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+
+        Background="Transparent"
+        
+        Title="MainWindow" Height="400" Width="380">
+
+    <StackPanel Orientation="Horizontal">
+        <WrapPanel Name="RadioTxt">
+            <StackPanel>
+                <Label FontSize="13" Foreground="White" >10-0 Caution</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-2 Elaborate</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-3 Stop transmitting</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-4 Understood</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-5 Repeat message</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-6 Busy</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-7 Off duty</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-8 On-duty</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-12 Standby</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-14 Passive</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-15 Prisoner</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-17 Responding to request.</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-19 Returning to SJ</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-19r Returning SJ for RVL</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-20 Location</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-22 Disregard</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-25 Visual.</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-26 Prosecuting</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-30 Socio-incursion</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-32 Armed personnel</Label>
+            </StackPanel>
+            <StackPanel>
+                <Label FontSize="13" Foreground="White">10-41 Commited to patrol</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-42 End patrol</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-52 Medical required</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-65 Standing by</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-76 Enroute</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-78 Armed resistance</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-91d Citizen</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-96 Mentally unfit</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-96p Physically unfit</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-97 Arrived</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-99 Officer under threat</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-103 Disturbance</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-103m Disturbance by 10-96</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-104 Suicide</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-107 Suspicious person</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">10-108 Deservicement</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">11-6 Vulnerable (Drunk/Injured)</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">11-42 Wrap up</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">11-44 Request cleanup</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">11-99 Officer needs assistance</Label>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Name="CodesTxt" Margin="110,0,0,0">
+            <StackPanel>
+                <Label FontSize="13" Foreground="White">Code 1 - Assist at your own convenience</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 2 - Assist when available</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 3 - Requesting backup immediately</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 4 - No more assistance required</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 5 - Stakeout</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 6 - Stay out of area</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 12 - Standard directives</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 15 - Report status, location and PT</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">Code 100 - Disturbance resolved.</Label>
+            </StackPanel>
+        </WrapPanel>
+        <WrapPanel Name="AbbreviationsTxt">
+            <StackPanel Margin="200,0,0,0">
+                <Label FontSize="13" Foreground="White">34S - Shots fired</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">52E - Explosions</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">404 - Riot in progress</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">647 - Citizen</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">647e - Anti-citizen</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">AW - Airwatch</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">BOL - Be on the lookout</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">CPT - Civil protection teams</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">DB - Dead body</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">GOA - Gone on arrival</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">UTL - Unable to locate</Label>
+                <Label FontSize="13" Foreground="White" Margin="0,-8,0,0">RVL - Revitalization</Label>
+
+
+            </StackPanel>
+        </WrapPanel>
+    </StackPanel>
+</Window>
