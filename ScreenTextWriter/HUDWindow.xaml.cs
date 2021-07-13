@@ -8,58 +8,45 @@ using System.Windows.Interop;
 namespace ScreenTextWriter
 {
 
-    public partial class MainWindow : Window
+    public partial class HUDWindow : Window
     {
         // Fields for global keybinding.
         private IntPtr _windowHandle;
         private HwndSource _source;
         //-----------------------------
-        public MainWindow()
+        public HUDWindow()
         {
-            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
-
             InitializeComponent();
-            Left = screenWidth - Width;
-            Top = 35; // Not smart to use a direct value here but since it is very small, shouldn't be a problem on different sized monitors.
+            double screenWidth = SystemParameters.PrimaryScreenWidth;
+            double screenHeight = SystemParameters.PrimaryScreenHeight;
+
+            Width = screenWidth;
+            Height = screenHeight;
+
+            Left = 0;
+            Top = 0;
             Topmost = true;
 
+            CollapseAll();
             RadioTxt.Visibility = Visibility.Visible;
-            CodesTxt.Visibility = Visibility.Collapsed;
-            AbbreviationsTxt.Visibility = Visibility.Collapsed;
-            
         }
 
-        void ChangeTextByIndex(int index){
-            switch (index)
-            {
-                case 0:
-                    CollapseAllText();
-                    RadioTxt.Visibility = Visibility.Visible;
-                    break;
-                case 1:
-                    CollapseAllText();
-                    CodesTxt.Visibility = Visibility.Visible;
-                    break;
-                case 2:
-                    CollapseAllText();
-                    AbbreviationsTxt.Visibility = Visibility.Visible;
-                    break;
-                case 3:
-                    CollapseAllText();
-                    break;
-            }
-        }
 
-        void CollapseAllText()
+        void CollapseAll()
         {
             RadioTxt.Visibility = Visibility.Collapsed;
             CodesTxt.Visibility = Visibility.Collapsed;
             AbbreviationsTxt.Visibility = Visibility.Collapsed;
+
+            MapImg.Visibility = Visibility.Collapsed;
+            SewersImg.Visibility = Visibility.Collapsed;
+            ChargesImg.Visibility = Visibility.Collapsed;
         }
         protected override void OnClosed(EventArgs e)
         {
             _source.RemoveHook(HwndHook);
-            UnregisterHotKey(_windowHandle, HOTKEY_ID);
+            UnregisterHotKey(_windowHandle, HOTKEY_ID_1);
+            UnregisterHotKey(_windowHandle, HOTKEY_ID_2);
             base.OnClosed(e);
         }
 
@@ -73,7 +60,8 @@ namespace ScreenTextWriter
         [DllImport("user32.dll")]
         private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
-        private const int HOTKEY_ID = 9000;
+        private const int HOTKEY_ID_1 = 9000;
+        private const int HOTKEY_ID_2 = 9001;
 
         //Modifiers:
         private const uint MOD_NONE = 0x0000; //(none)
@@ -86,6 +74,8 @@ namespace ScreenTextWriter
         private const uint VK_F2 = 0x71;
         private const uint VK_F3 = 0x72;
         private const uint VK_F4 = 0x73;
+        private const uint VK_M = 0x4D;
+        private const uint VK_N = 0x4E;
 
         protected override void OnSourceInitialized(EventArgs e)
         {
@@ -95,10 +85,14 @@ namespace ScreenTextWriter
             _source = HwndSource.FromHwnd(_windowHandle);
             _source.AddHook(HwndHook);
 
-            RegisterHotKey(_windowHandle, HOTKEY_ID, MOD_NONE, VK_DEL); // Delete
-            RegisterHotKey(_windowHandle, HOTKEY_ID, MOD_NONE, VK_F2); // F2
-            RegisterHotKey(_windowHandle, HOTKEY_ID, MOD_NONE, VK_F3); // F3
-            RegisterHotKey(_windowHandle, HOTKEY_ID, MOD_NONE, VK_F4); // F4
+            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_NONE, VK_DEL); // Delete
+            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_NONE, VK_F2); // F2
+            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_NONE, VK_F3); // F3
+            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_NONE, VK_F4); // F4
+            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_SHIFT, VK_M); // M
+            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_SHIFT, VK_N); // N
+
+            RegisterHotKey(_windowHandle, HOTKEY_ID_2, MOD_SHIFT, VK_F2); // Shift + F2
         }
 
         private IntPtr HwndHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
@@ -107,28 +101,40 @@ namespace ScreenTextWriter
             switch (msg)
             {
                 case WM_HOTKEY:
+                    int vkey = (((int)lParam >> 16) & 0xFFFF);
                     switch (wParam.ToInt32())
                     {
-                        case HOTKEY_ID:
-                            int vkey = (((int)lParam >> 16) & 0xFFFF);
+                        case HOTKEY_ID_1:
+                            CollapseAll();
                             switch (vkey)
                             {
                                 case (int)VK_F2:
-                                    ChangeTextByIndex(0);
+                                    RadioTxt.Visibility = Visibility.Visible;
                                     break;
                                 case (int)VK_F3:
-                                    ChangeTextByIndex(1);
+                                    CodesTxt.Visibility = Visibility.Visible;
                                     break;
                                 case (int)VK_F4:
-                                    ChangeTextByIndex(2);
+                                    AbbreviationsTxt.Visibility = Visibility.Visible;
                                     break;
-                                case (int)VK_DEL:
-                                    ChangeTextByIndex(3);
+                                case(int)VK_M:
+                                    MapImg.Visibility = Visibility.Visible;
+                                    break;
+                                case (int)VK_N:
+                                    SewersImg.Visibility = Visibility.Visible;
                                     break;
                             }
+                            break;
 
+                        case HOTKEY_ID_2:
+                            CollapseAll();
+                            if (vkey == (int)VK_F2)
+                            {
+                                ChargesImg.Visibility = Visibility.Visible;
+                            }
                             handled = true;
                             break;
+
                     }
                     break;
             }
