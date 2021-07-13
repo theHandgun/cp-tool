@@ -1,4 +1,4 @@
-# cp-tool
+# CP Tool
 CP interface for all radio codes for use in HL2RP. Radio commands are based on Willard Network CP spreadsheet.
 
 ## Keys
