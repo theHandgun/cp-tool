@@ -8,3 +8,4 @@ CP interface for all radio codes for use in HL2RP. Radio commands are based on W
 * SHIFT + F2 - Charges
 * SHIFT + M - C24_V3 Map Layout
 * SHIFT + N - C24_3 Sewers Layout
+* DEL - Hide
