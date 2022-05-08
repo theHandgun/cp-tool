@@ -39,7 +39,7 @@ namespace ScreenTextWriter
             AbbreviationsTxt.Visibility = Visibility.Collapsed;
 
             MapImg.Visibility = Visibility.Collapsed;
-            SewersImg.Visibility = Visibility.Collapsed;
+            //SewersImg.Visibility = Visibility.Collapsed;
             ChargesImg.Visibility = Visibility.Collapsed;
         }
         protected override void OnClosed(EventArgs e)
@@ -51,7 +51,7 @@ namespace ScreenTextWriter
         }
 
 
-        // -- Low level global keybinding, let's us process keybinds even when the system is not focused on the form.
+        // -- Low level global keybinding, lets us process keybinds even when the system is not focused on the form.
         // -- Code bellow really should be in another file but I am too lazy to do it. (the tool is finalized in one file anyways)
 
         [DllImport("user32.dll")]
@@ -89,10 +89,11 @@ namespace ScreenTextWriter
             RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_NONE, VK_F2); // F2
             RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_NONE, VK_F3); // F3
             RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_NONE, VK_F4); // F4
-            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_SHIFT, VK_M); // M
-            RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_SHIFT, VK_N); // N
+            //RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_SHIFT, VK_M); // M
+            //RegisterHotKey(_windowHandle, HOTKEY_ID_1, MOD_SHIFT, VK_N); // N
 
             RegisterHotKey(_windowHandle, HOTKEY_ID_2, MOD_SHIFT, VK_F2); // Shift + F2
+            RegisterHotKey(_windowHandle, HOTKEY_ID_2, MOD_SHIFT, VK_F3); // Shift + F3
         }
 
         private IntPtr HwndHook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
@@ -117,12 +118,12 @@ namespace ScreenTextWriter
                                 case (int)VK_F4:
                                     AbbreviationsTxt.Visibility = Visibility.Visible;
                                     break;
-                                case(int)VK_M:
-                                    MapImg.Visibility = Visibility.Visible;
-                                    break;
-                                case (int)VK_N:
-                                    SewersImg.Visibility = Visibility.Visible;
-                                    break;
+                                //case(int)VK_M:
+                                //    MapImg.Visibility = Visibility.Visible;
+                                //    break;
+                                //case (int)VK_N:
+                                //    SewersImg.Visibility = Visibility.Visible;
+                                //    break;
                             }
                             break;
 
@@ -131,6 +132,10 @@ namespace ScreenTextWriter
                             if (vkey == (int)VK_F2)
                             {
                                 ChargesImg.Visibility = Visibility.Visible;
+                            } 
+                            else if (vkey == (int)VK_F3)
+                            {
+                                MapImg.Visibility = Visibility.Visible;
                             }
                             handled = true;
                             break;

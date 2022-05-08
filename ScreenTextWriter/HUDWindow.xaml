@@ -14,9 +14,9 @@
 
     <StackPanel Orientation="Vertical">
 
-        <Image Source="/Resources/C24_V3.png" Name="MapImg" Margin="0,80,0,0" Width="800" Height="800" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image Source="/Resources/C24_V3_Sewers.png" Name="SewersImg" Margin="0,80,0,0" Width="800" Height="800" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image Source="/Resources/charges.png" Name="ChargesImg" Margin="0,0,0,0" Width="700" Height="1000" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Image Source="/Resources/C24_V3.png" Name="MapImg" Margin="0,20,0,0" Width="800" Height="800" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <!--Image Source="/Resources/C24_V3_Sewers.png" Name="SewersImg" Margin="0,80,0,0" Width="800" Height="800" HorizontalAlignment="Center" VerticalAlignment="Center"/-->
+        <Image Source="/Resources/charges.png" Name="ChargesImg" Margin="0,20,0,0" Width="700" Height="1000" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         
         <WrapPanel Name="RadioTxt" Margin="0,20,10,0" HorizontalAlignment="Right" VerticalAlignment="Top">
             <StackPanel>
