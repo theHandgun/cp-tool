@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31019.35
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenTextWriter", "ScreenTextWriter\ScreenTextWriter.csproj", "{1406FE24-755E-4147-B569-29449F963BC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenTextWriter", "ScreenTextWriter\ScreenTextWriter.csproj", "{1406FE24-755E-4147-B569-29449F963BC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3564EFC2-5ED6-4644-BBE8-2C70E26472C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
