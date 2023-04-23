@@ -10,14 +10,12 @@
 
   <ItemGroup>
     <None Remove="C24_V3.png" />
-    <None Remove="C24_V3_Sewers.png" />
     <None Remove="Resources\C24_V3.png" />
     <None Remove="Resources\charges.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\C24_V3.png" />
-    <Resource Include="Resources\C24_V3_Sewers.png" />
     <Resource Include="Resources\charges.png" />
   </ItemGroup>
 
